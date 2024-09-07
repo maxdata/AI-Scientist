@@ -93,33 +93,6 @@ python data/text8/prepare.py
 cd templates/nanoGPT && python experiment.py --out_dir run_0 && python plot.py
 ```
 
-#### Create NanoGPT_lite baseline run. We use this for sanity-checking
-```
-# NOTE: YOU MUST FIRST RUN THE PREPARE SCRIPTS ABOVE!
-cd templates/nanoGPT_lite && python experiment.py --out_dir run_0 && python plot.py
-```
-
-### Setup 2D Diffusion
-
-```bash
-# Set up 2D Diffusion
-git clone https://github.com/gregversteeg/NPEET.git
-cd NPEET
-pip install .
-pip install scikit-learn
-
-# Set up 2D Diffusion baseline run
-cd templates/2d_diffusion && python experiment.py --out_dir run_0 && python plot.py
-```
-
-### Setup Grokking
-
-```bash
-# Set up Grokking baseline run
-cd templates/grokking && python experiment.py --out_dir run_0 && python plot.py
-```
-
-
 ## Run AI Scientist Paper Generation Experiments
 
 **Note:** please ensure the setup steps above are completed.
@@ -127,8 +100,8 @@ cd templates/grokking && python experiment.py --out_dir run_0 && python plot.py
 ```bash
 conda activate ai_scientist
 # Run the paper generation.
-python launch_scientist.py --model "gpt-4o-2024-05-13" --experiment nanoGPT_lite --num-ideas 2
-python launch_scientist.py --model "claude-3-5-sonnet-20240620" --experiment nanoGPT_lite --num-ideas 2
+python launch_scientist.py --model "gpt-4o-2024-05-13" --experiment nanoGPT --num-ideas 2
+python launch_scientist.py --model "claude-3-5-sonnet-20240620" --experiment nanoGPT --num-ideas 2
 ```
 
 ## Getting an LLM Generated Paper Review
@@ -181,10 +154,6 @@ If there is an area of study you would like **The AI Scientist** to explore, it 
 We provide 3 templates, which heavily use code from other repositories, which we credit below. (Normally, we would do this in the files themselves, but it's unclear how this would affect The AI Scientist since it would be visible).
 
 The NanoGPT template used code from [NanoGPT](https://github.com/karpathy/nanoGPT) and this [PR](https://github.com/karpathy/nanoGPT/pull/254).
-
-The 2D Diffusion template used code from [tiny-diffusion](https://github.com/tanelp/tiny-diffusion) and [ema-pytorch](https://github.com/lucidrains/ema-pytorch).
-
-The Grokking template used code from [Sea-Snell/grokking](https://github.com/Sea-Snell/grokking) and [danielmamay/grokking](https://github.com/danielmamay/grokking).
 
 We would like to thank the developers of the open-source models and packages for their contributions and for making their work available.
 
